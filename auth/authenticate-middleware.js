@@ -14,6 +14,7 @@ module.exports = (req, res, next) => {
         // the token is not valid
         res.status(401).json({ message: "cant touch this!" });
       } else {
+        req.decodedToken = decodedToken;
         next();
       }
     },);
